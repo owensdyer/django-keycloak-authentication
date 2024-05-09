@@ -20,12 +20,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-okk0!em8*$pfz3vx8c!=u&0lo=qwpg(!c!n^41c0#*5i-9n(@1'
+SECRET_KEY = 'g$cvv$*$zjm$y03a6h(%giwip6+^sh#@jjn5!zym5j*!-^b^%m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+SITE_ID = 1
 
 
 # Application definition
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # django allauth
     'allauth',
@@ -53,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.sites.middleware.CurrentSiteMiddleware',
 
     # django allauth
     'allauth.account.middleware.AccountMiddleware',
@@ -67,12 +71,12 @@ SOCIALACCOUNT_PROVIDERS = {
     "openid_connect": {
         "APPS": [
             {
-                "provider_id": "keycloak",
-                "name": "Keycloak",
-                "client_id": "django-keycloak",
-                "secret": "sffUI04JczmaEO0eOkKSGvY86shuKqmI",
+                "provider_id": "university",
+                "name": "University",
+                "client_id": "napier",
+                "secret": "CzGQFyHxIIGEUeBHwQpxvzn8J92GYAmJ",
                 "settings": {
-                    "server_url": "http://192.168.1.13:8080/realms/Merchiston/.well-known/openid-configuration",
+                    "server_url": "http://127.0.0.1:8080/realms/University/.well-known/openid-configuration",
                 },
             }
         ]
